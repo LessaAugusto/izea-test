@@ -1,1 +1,8 @@
-{{yield}}
+<Modal
+  @isVisible={{this.isModalVisible}}
+  @onClose={{this.toggleModal}}
+/>
+
+{{#each this.array as |val|}}
+  <div {{on "click" this.toggleModal }} style="background-color: rgb(201, 90, 90); margin-top: 20px"> eiiii </div>
+{{/each}}

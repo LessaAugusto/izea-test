@@ -1,1 +1,8 @@
-{{yield}}
+{{#if @isVisible}}
+  <div class="modal" data-test-modal-container>
+    <div class="modal-content">
+      <button class="close-button" {{on "click" @onClose}} data-test-close-button />
+      {{yield}}
+    </div>
+  </div>
+{{/if}}
