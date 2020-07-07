@@ -1,26 +1,40 @@
 import { module, test } from "qunit";
-import { setupRenderingTest, skip } from "ember-qunit";
-import { render } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
+import { render, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
 module("Integration | Component | modal", function(hooks) {
   setupRenderingTest(hooks);
 
-  skip("it renders", async function(assert) {
-    // Set any properties with this.set("myProperty", "value");
-    // Handle any actions with this.set("myAction", function(val) { ... });
+  test("the modal should be toggled successfully", async function(assert) {
+    // The modal will be initially closed.
+    this.setProperties({ isModalVisible: false });
+    this.set("onClose", () => {
+      this.setProperties({ isModalVisible: false });
+    });
 
-    await render(hbs`<Modal />`);
-
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
     await render(hbs`
-      <Modal>
-        template block text
+      <Modal
+        @isVisible={{this.isModalVisible}}
+        @onClose={{this.onClose}}
+      >
+        IZEA is the best company!
       </Modal>
     `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    // It should not exist.
+    assert.dom("[data-test-modal-container]").doesNotExist();
+
+    this.setProperties({ isModalVisible: true });
+
+    // The modal should be visible now.
+    assert.dom("[data-test-modal-container]").containsText(
+      "IZEA is the best company!"
+    );
+
+    // Clicks on the close button (the modal should disappear).
+    await click("[data-test-close-button]");
+
+    assert.dom("[data-test-modal-container]").doesNotExist();
   });
 });
