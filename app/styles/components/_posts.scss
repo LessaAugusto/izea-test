@@ -1,0 +1,91 @@
+@use "../base/theme";
+
+$containers-width: 80%;
+
+.posts-container {
+  width: $containers-width;
+  // border: 1px solid theme.$secondary-dark;
+  border-radius: 10px;
+  padding: 5%;
+  margin: auto;
+
+  display: grid;
+  grid-template: 40px / auto;
+  grid-auto-rows: 40px;
+  row-gap: 20px;
+  
+  .post {
+    border: 1px solid theme.$secondary-dark;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.2s;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    &:hover {
+      background-color: theme.$secondary;
+      border-color: theme.$secondary;
+      color: white;
+  
+      transition: all 0.2s;
+    }
+  }
+}
+
+.pages-container {
+  color: black;
+  width: $containers-width;
+  font-size: 20px;
+  margin: 20px auto;
+
+  display: flex;
+  align-items: center;
+
+  .page {
+    .page-link {
+      padding: 10px;
+      text-decoration: none;
+      outline: none;
+      color: inherit;
+
+      &:visited {
+        color: inherit;
+      }
+
+      &:hover {
+        font-weight: bold;
+        color: inherit;
+      }
+    }
+  }
+
+  .left-arrow::before {
+    margin-right: 10px;
+    cursor: pointer;
+    content: "<";
+  }
+  .right-arrow::after {
+    margin-left: 10px;
+    cursor: pointer;
+    content: ">";
+  }
+
+  .segment {
+    display: flex;
+
+    &:first-of-type::after {
+      content: "...";
+    }
+    &:last-of-type::before {
+      content: "...";
+    }
+  }
+
+  .active-page {
+    background-color: theme.$secondary-dark;
+    color: white;
+  }
+}
+
