@@ -1,3 +1,5 @@
+@use "../base/theme";
+
 .loading-content {
   width: 100%;
   display: flex;
@@ -8,8 +10,8 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 6px solid #fed;
-  border-color: #fed transparent; 
+  border: 6px solid theme.$tertiary;
+  border-color: theme.$tertiary transparent; 
   animation: loading 1.2s linear infinite;
 }
 

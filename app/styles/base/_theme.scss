@@ -1,0 +1,13 @@
+/**
+ * This is the theme of our application. Nothing should be changed here.
+ */
+
+$primary: #e2473e;
+$primary_light: #ff6f62;
+$primary_dark: #a22b25;
+$secondary: #8bbdc8;
+$secondary_dark: #378899;
+$tertiary: #f4a76c;
+$light: #fed;
+$primary_gradient: radial-gradient(circle, $primary_light 11%, $primary 61%, $primary_dark 90%);
+$secondary_gradient: radial-gradient(circle, $secondary 11%, $secondary_dark 90%);
