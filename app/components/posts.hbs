@@ -3,15 +3,30 @@
   @onClose={{this.toggleModal}}
 />
 
-{{#each @posts as |post|}}
-  <div {{on "click" this.toggleModal }} style="background-color: rgb(201, 90, 90); margin-top: 20px">
-    User id: {{post.userId}}
-    Post id: {{post.id}}
-    Post title: {{post.title}}
-    Post body: {{post.body}}
-  </div>
-{{/each}}
+<div class="container">
+  <div class="posts-container">
 
-{{#each this.pages as |pageNum|}}
-  <LinkTo @route="index" @query={{hash page=pageNum}}> {{pageNum}} </LinkTo>
-{{/each}}
+    {{#each @posts as |post|}}
+      <div {{on "click" this.toggleModal }} class="post">
+        {{post.title}}
+      </div>
+    {{/each}}
+
+  </div>
+
+  <div class="pages-container">
+    <span class="left-arrow" {{on "click" (fn this.redirectToPage -1)}} />
+
+    {{#each this.visiblePagesSegments as |segments|}}
+      <div class="segment">
+        {{#each segments as |pageNum|}}
+          <div class="page {{if (eq pageNum this.currentPage) "active-page"}}">
+            <LinkTo @route="index" @query={{hash page=pageNum}} class="page-link"> {{pageNum}} </LinkTo>
+          </div>
+        {{/each}}
+      </div>
+    {{/each}}
+
+    <span class="right-arrow" {{on "click" (fn this.redirectToPage 1)}}/>
+  </div>
+</div>
