@@ -16,6 +16,7 @@ export default class IndexRoute extends Route {
     const records = await this.store.query("post", {
       _limit: LIMIT_PER_PAGE,
       _page: page,
+      _expand: "user"
     });
 
     return records;
