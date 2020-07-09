@@ -1,16 +1,9 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
 
-export default class PostsComponent extends Component {
+export default class PostsPaginationComponent extends Component {
   @service router;
-
-  /**
-   * This component is going to control the modal state (the user is going to open the modal by
-   * clicking on a post).
-   */
-  @tracked isModalVisible = false;
 
   /**
    * Current page the user is on.
@@ -80,9 +73,5 @@ export default class PostsComponent extends Component {
         queryParams: { page: nextPage },
       }
     );
-  }
-
-  @action toggleModal() {
-    this.isModalVisible = !this.isModalVisible;
   }
 }
