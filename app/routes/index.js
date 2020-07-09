@@ -46,7 +46,7 @@ export default class IndexRoute extends Route {
    */
   afterModel(model) {
     const { query, meta } = model;
-    if (query && meta && query._page > meta.total) {
+    if (query && meta && (query._page > meta.total || query._page <= 0)) {
       this.transitionTo("index", { queryParams: { page: 1 }});
     }
   }

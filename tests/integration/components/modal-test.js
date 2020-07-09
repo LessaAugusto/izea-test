@@ -6,13 +6,15 @@ import { hbs } from "ember-cli-htmlbars";
 module("Integration | Component | modal", function(hooks) {
   setupRenderingTest(hooks);
 
-  test("the modal should be toggled successfully", async function(assert) {
+  hooks.beforeEach(function() {
     // The modal will be initially closed.
     this.setProperties({ isModalVisible: false });
     this.set("onClose", () => {
       this.setProperties({ isModalVisible: false });
     });
+  });
 
+  test("the modal should open and close successfully", async function(assert) {
     await render(hbs`
       <Modal
         @isVisible={{this.isModalVisible}}

@@ -6,11 +6,6 @@ export default class PostsPaginationComponent extends Component {
   @service router;
 
   /**
-   * Current page the user is on.
-   */
-  currentPage;
-
-  /**
    * The contiguous segments of pages that are going to be shown to the user (check this.buildPagesSegments
    * for more information).
    */
@@ -20,8 +15,8 @@ export default class PostsPaginationComponent extends Component {
    * This method gets the current page from the query param received (if no query
    * param has been found, we are on the first page).
    */
-  getCurrentPage() {
-    const page = this.router.currentURL.split("=")[1];
+  get currentPage() {
+    const page = (this.router.currentURL || "/").split("=")[1];
 
     return page ? parseInt(page) : 1;
   }
@@ -39,7 +34,6 @@ export default class PostsPaginationComponent extends Component {
    * Why is this necessary? To achieve a responsive design.
    */
   buildPagesSegments() {
-    this.currentPage = this.getCurrentPage();
     const lastPage = this.args.totalNumberOfPages;
     const lastPageButOne = lastPage - 1;
 
