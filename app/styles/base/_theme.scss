@@ -2,6 +2,7 @@
  * This is the theme of our application. Nothing should be changed here.
  */
 
+/* Colors */
 $primary: #e2473e;
 $primary-light: #ff6f62;
 $primary-dark: #a22b25;
@@ -10,5 +11,13 @@ $secondary-dark: #378899;
 $tertiary: #f4a76c;
 $light: #fed;
 $extra-light: #fffdfb;
+$dark: #3e3b3b;
 $primary-gradient: radial-gradient(circle, $primary-light 11%, $primary 61%, $primary-dark 90%);
 $secondary-gradient: radial-gradient(circle, $secondary 11%, $secondary-dark 90%);
+
+/* Breakpoints */
+$xs: 320px;
+$sm: 480px;
+$md: 600px;
+$lg: 900px;
+$xl: 1200px;

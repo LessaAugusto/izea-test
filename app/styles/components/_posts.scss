@@ -1,25 +1,46 @@
 @use "../base/theme";
+/**
+ * Default width used by posts-container and pages-container.
+ */
+$containers-base-width: 80%;
 
-$containers-width: 80%;
+@mixin pagination-hover-effect {
+  &:hover {
+    font-weight: bold;
+    color: black;
+  }
+}
+
+/**
+ * Mixin to reset the configuration of the posts-container grid. It's useful to set the media queries.
+ */
+@mixin reset-posts-container-grid($row-size, $width, $padding, $gap) {
+  width: $width;
+  padding: $padding;
+
+  grid-template: $row-size / auto;
+  grid-auto-rows: $row-size;
+  row-gap: $gap;
+}
 
 .posts-container {
-  width: $containers-width;
-  // border: 1px solid theme.$secondary-dark;
-  border-radius: 10px;
-  padding: 5%;
-  margin: auto;
+  @include reset-posts-container-grid(
+    40px,
+    $containers-base-width ,
+    5%,
+    20px
+  );
 
+  margin: auto;
   display: grid;
-  grid-template: 40px / auto;
-  grid-auto-rows: 40px;
-  row-gap: 20px;
   
   .post {
     border: 1px solid theme.$secondary-dark;
     border-radius: 10px;
-    width: 100%;
     transition: all 0.2s;
+    padding: 0 10px;
   
+    // Aligns the text to the center.
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,46 +56,25 @@ $containers-width: 80%;
 }
 
 .pages-container {
-  color: black;
-  width: $containers-width;
+  color: theme.$dark;
+  width: $containers-base-width;
   font-size: 20px;
-  margin: 20px auto;
+  margin: 5% auto;
 
   display: flex;
   align-items: center;
 
-  .page {
-    .page-link {
-      padding: 10px;
-      text-decoration: none;
-      outline: none;
-      color: inherit;
-
-      &:visited {
-        color: inherit;
-      }
-
-      &:hover {
-        font-weight: bold;
-        color: inherit;
-      }
-    }
-  }
-
-  .left-arrow::before {
-    margin-right: 10px;
-    cursor: pointer;
-    content: "<";
-  }
-  .right-arrow::after {
-    margin-left: 10px;
-    cursor: pointer;
-    content: ">";
-  }
-
-  .segment {
+  .pages-segment {
     display: flex;
 
+    .active-page {
+      background-color: theme.$secondary-dark;
+      color: white;
+    }
+
+    /* The first segment must have a "..." after it, and the last one must have a "..." before. This
+    way, we shall have something like this: [W] ... [X,Y] ... [Z]. [W] will be the first segment and [Z]
+    will be the last one. */
     &:first-of-type::after {
       content: "...";
     }
@@ -83,9 +83,53 @@ $containers-width: 80%;
     }
   }
 
-  .active-page {
-    background-color: theme.$secondary-dark;
-    color: white;
+  .page {
+    @include pagination-hover-effect;
+
+    margin: 0 5px;
+
+    .page-link {
+      text-decoration: none;
+      outline: none;
+      color: inherit;
+      padding: 10px;
+
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+
+  .arrow {
+    @include pagination-hover-effect;
+
+    cursor: pointer;
   }
 }
 
+/* Media queries */
+@media screen and (max-width: theme.$xs) {
+  .posts-container {
+    @include reset-posts-container-grid(80px, 100%, 0, 20px);
+  }
+
+  .pages-container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: calc(#{theme.$xs} + 1px)) and (max-width: theme.$md) {
+  .posts-container {
+    @include reset-posts-container-grid(80px, 80%, 0, 20px);
+  }
+}
+
+@media screen and (min-width: calc(#{theme.$md} + 1px)) {
+  .posts-container {
+    @include reset-posts-container-grid(60px, 50%, 0, 20px);
+  }
+
+  .pages-container {
+    width: 50%;
+  }
+}

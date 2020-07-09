@@ -15,10 +15,12 @@
   </div>
 
   <div class="pages-container">
-    <span class="left-arrow" {{on "click" (fn this.redirectToPage -1)}} />
+    <span class="arrow" {{on "click" (fn this.redirectToPage -1)}}>
+      {{"<"}}
+    </span>
 
     {{#each this.visiblePagesSegments as |segments|}}
-      <div class="segment">
+      <div class="pages-segment">
         {{#each segments as |pageNum|}}
           <div class="page {{if (eq pageNum this.currentPage) "active-page"}}">
             <LinkTo @route="index" @query={{hash page=pageNum}} class="page-link"> {{pageNum}} </LinkTo>
@@ -27,6 +29,8 @@
       </div>
     {{/each}}
 
-    <span class="right-arrow" {{on "click" (fn this.redirectToPage 1)}}/>
+    <span class="arrow" {{on "click" (fn this.redirectToPage 1)}}>
+      {{">"}}
+    </span>
   </div>
 </div>
