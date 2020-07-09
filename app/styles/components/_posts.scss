@@ -1,4 +1,5 @@
 @use "../base/theme";
+
 /**
  * Default width used by posts-container and pages-container.
  */
@@ -59,10 +60,12 @@ $containers-base-width: 80%;
   color: theme.$dark;
   width: $containers-base-width;
   font-size: 20px;
-  margin: 5% auto;
+  margin: 0px auto;
+  padding: 5% 0px;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   .pages-segment {
     display: flex;
@@ -107,29 +110,45 @@ $containers-base-width: 80%;
   }
 }
 
-/* Media queries */
+/* Media query for extra small devides (width <= 320px) */
 @media screen and (max-width: theme.$xs) {
+  $containers-width: 95%;
+
   .posts-container {
-    @include reset-posts-container-grid(80px, 100%, 0, 20px);
+    @include reset-posts-container-grid(80px, $containers-width, 0, 20px);
   }
 
   .pages-container {
-    width: 100%;
+    width: $containers-width;
   }
 }
 
+/* Media query for medium devides (321px <= width <= 600px) */
 @media screen and (min-width: calc(#{theme.$xs} + 1px)) and (max-width: theme.$md) {
-  .posts-container {
-    @include reset-posts-container-grid(80px, 80%, 0, 20px);
-  }
-}
+  $containers-width: 80%;
 
-@media screen and (min-width: calc(#{theme.$md} + 1px)) {
   .posts-container {
-    @include reset-posts-container-grid(60px, 50%, 0, 20px);
+    @include reset-posts-container-grid(80px, $containers-width, 0, 20px);
   }
 
   .pages-container {
-    width: 50%;
+    width: $containers-width;
+  }
+}
+
+/* Media query for large devides (width >= 601px) */
+@media screen and (min-width: calc(#{theme.$md} + 1px)) {
+  $containers-width: 50%;
+  $max-containers-width: 600px;
+
+  .posts-container {
+    @include reset-posts-container-grid(60px, $containers-width, 0, 20px);
+    margin-top: 20px;
+    max-width: $max-containers-width;
+  }
+
+  .pages-container {
+    width: $containers-width;
+    max-width: $max-containers-width;
   }
 }

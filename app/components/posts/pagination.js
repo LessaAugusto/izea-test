@@ -31,7 +31,7 @@ export default class PostsPaginationComponent extends Component {
    * The user is in on another page.
    *  -> In this case, we'll show three segments of pages: [1]...[currentPage, currentPage+1]...[lastPage].
    * 
-   * Why is this necessary? To achieve a responsive design.
+   * Why is this necessary? To achieve a responsive design (it'll work only with fours pages or more).
    */
   buildPagesSegments() {
     const lastPage = this.args.totalNumberOfPages;

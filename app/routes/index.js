@@ -1,7 +1,7 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 
-export const LIMIT_PER_PAGE = 7;
+export const LIMIT_PER_PAGE = 6;
 
 export default class IndexRoute extends Route {
   @service ajax;
