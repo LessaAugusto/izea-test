@@ -3,7 +3,7 @@
 /**
  * Default width used by posts-container and pages-container.
  */
-$containers-base-width: 80%;
+$containers-base-width: 90%;
 
 @mixin pagination-hover-effect {
   &:hover {
@@ -13,9 +13,9 @@ $containers-base-width: 80%;
 }
 
 /**
- * Mixin to reset the configuration of the posts-container grid. It's useful to set the media queries.
+ * Mixin to set the configuration of the posts-container grid. It's useful to set the media queries.
  */
-@mixin reset-posts-container-grid($row-size, $width, $padding, $gap) {
+@mixin set-posts-container-grid($row-size, $width, $padding, $gap) {
   width: $width;
   padding: $padding;
 
@@ -25,26 +25,22 @@ $containers-base-width: 80%;
 }
 
 .posts-container {
-  @include reset-posts-container-grid(
-    40px,
-    $containers-base-width ,
-    5%,
-    20px
-  );
-
   margin: auto;
   display: grid;
-  
+  margin-top: 1.25rem; // 20px
+  @include set-posts-container-grid(6.25rem, $containers-base-width, 0, 1.25rem);
+
   .post {
     border: 1px solid theme.$secondary-dark;
     border-radius: 10px;
     transition: all 0.2s;
-    padding: 0 10px;
+    padding: 0.625rem; // 10px
   
     // Aligns the text to the center.
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   
     &:hover {
       background-color: theme.$secondary;
@@ -59,9 +55,8 @@ $containers-base-width: 80%;
 .pages-container {
   color: theme.$dark;
   width: $containers-base-width;
-  font-size: 20px;
-  margin: 0px auto;
-  padding: 5% 0px;
+  font-size: theme.$font-sm;
+  margin: 5% auto 0px auto;
 
   display: flex;
   align-items: center;
@@ -89,13 +84,13 @@ $containers-base-width: 80%;
   .page {
     @include pagination-hover-effect;
 
-    margin: 0 5px;
+    margin: 0 0.3125rem; // 5px
 
     .page-link {
       text-decoration: none;
       outline: none;
       color: inherit;
-      padding: 10px;
+      padding: 0.625rem; // 10px
 
       &:visited {
         color: inherit;
@@ -110,45 +105,41 @@ $containers-base-width: 80%;
   }
 }
 
-/* Media query for extra small devides (width <= 320px) */
-@media screen and (max-width: theme.$xs) {
-  $containers-width: 95%;
+/* Media query for medium devides (600px <= width <= 960px) */
+@media screen and (min-width: theme.$sm) {
+  $containers-width: 75%;
 
   .posts-container {
-    @include reset-posts-container-grid(80px, $containers-width, 0, 20px);
+    // row-size of 80px
+    @include set-posts-container-grid(5rem, $containers-width, 0, 1.25rem);
   }
 
   .pages-container {
     width: $containers-width;
+    font-size: theme.$font-md;
+  }
+
+  .post {
+    font-size: 1.125rem; // 18px
   }
 }
 
-/* Media query for medium devides (321px <= width <= 600px) */
-@media screen and (min-width: calc(#{theme.$xs} + 1px)) and (max-width: theme.$md) {
-  $containers-width: 80%;
-
-  .posts-container {
-    @include reset-posts-container-grid(80px, $containers-width, 0, 20px);
-  }
-
-  .pages-container {
-    width: $containers-width;
-  }
-}
-
-/* Media query for large devides (width >= 601px) */
-@media screen and (min-width: calc(#{theme.$md} + 1px)) {
+/* Media query for large devides (width >= 1280px) */
+@media screen and (min-width: theme.$md) {
   $containers-width: 50%;
-  $max-containers-width: 600px;
+  $max-containers-width: 37.5rem; //600px
 
   .posts-container {
-    @include reset-posts-container-grid(60px, $containers-width, 0, 20px);
-    margin-top: 20px;
     max-width: $max-containers-width;
   }
 
   .pages-container {
     width: $containers-width;
     max-width: $max-containers-width;
+    margin-top: 3%;
+  }
+
+  .post {
+    font-size: theme.$font-sm;
   }
 }
