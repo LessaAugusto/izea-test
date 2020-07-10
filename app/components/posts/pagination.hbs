@@ -5,7 +5,8 @@
 
   {{#each this.visiblePagesSegments as |segments segIndex|}}
     <div class="pages-segment" data-test-pages-segments={{segIndex}}>
-      
+      {{!-- Displaying the pages in segments makes it easy to add the "..." between them with some
+      css logic, using selectors. --}}
       {{#each segments as |pageNum pageIndex|}}
         <div class="page {{if (eq pageNum this.currentPage) "active-page"}}" data-test-page-num-container={{pageIndex}}>
           <LinkTo @route="index" @query={{hash page=pageNum}} class="page-link" data-test-page-num={{pageNum}}> {{pageNum}} </LinkTo>

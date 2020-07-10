@@ -12,7 +12,7 @@ export default class PostsPaginationComponent extends Component {
   visiblePagesSegments = this.buildPagesSegments();
 
   /**
-   * This method gets the current page from the query param received (if no query
+   * This method gets the current page through the query param received (if no query
    * param has been found, we are on the first page).
    */
   get currentPage() {
@@ -28,7 +28,7 @@ export default class PostsPaginationComponent extends Component {
    *
    * The user is either on the first page, or the second one, or on the last page but one, or on the last page.
    *  -> In this case, we'll show two segments of pages: [1,2]...[lastPageButOne, lastPage].
-   * The user is in on another page.
+   * The user is on another page.
    *  -> In this case, we'll show three segments of pages: [1]...[currentPage, currentPage+1]...[lastPage].
    * 
    * Why is this necessary? To achieve a responsive design (it'll work only with fours pages or more).

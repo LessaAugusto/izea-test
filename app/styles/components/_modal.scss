@@ -12,13 +12,12 @@
 
   .content {
     word-break: break-word;
-    margin: 5% auto;
     background-color: white;
+    margin: 5% auto;
     border: 2px solid theme.$primary-dark;
     border-radius: 5px;
     box-shadow: theme.$shadow-dark;
   
-    // Sets the dimensions of the modal.
     height: 80%;
     width: 90%;
     overflow-y: auto;

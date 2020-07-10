@@ -3,6 +3,10 @@
 $xs-xs-mobile-screen: 320px;
 
 .user-info-container {
+  /**
+   * Creates a grid of 5 rows of 2.5rem and 2 columns automatically adjusted. Our grid is going
+   * to have a gap of 1rem in-between the rows.
+   */
   display: grid;
   grid-template-rows: repeat(5, 2.5rem); // 40px
   grid-template-columns: repeat(2, auto);

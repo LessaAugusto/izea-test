@@ -21,6 +21,10 @@ $containers-base-width: 90%;
   width: $width;
   padding: $padding;
 
+  /**
+   * Creates a grid with one column and one row, initially. As the content of this grid is dynamic, the number
+   * of rows is going to vary, so we must set grid-auto-rows here.
+   */
   grid-template: $row-size / auto;
   grid-auto-rows: $row-size;
   row-gap: $gap;
@@ -34,6 +38,9 @@ $containers-base-width: 90%;
   margin: auto;
   display: grid;
   margin-top: 1.25rem; // 20px
+
+  // row-size of 100px
+  // gap of 20px
   @include set-posts-container-grid(6.25rem, $containers-base-width, 0, 1.25rem);
 
   .post {
@@ -118,6 +125,7 @@ $containers-base-width: 90%;
 
   .posts-container {
     // row-size of 80px
+    // gap of 20px
     @include set-posts-container-grid(5rem, $containers-width, 0, 1.25rem);
 
     .post {
@@ -134,7 +142,7 @@ $containers-base-width: 90%;
 /* Media query for large devides (width >= 960px) */
 @media screen and (min-width: theme.$md) {
   $containers-width: 50%;
-  $max-containers-width: 37.5rem; //600px
+  $max-containers-width: 37.5rem; // 600px
 
   .modal-content-container {
     display: flex;

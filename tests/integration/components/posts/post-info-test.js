@@ -3,7 +3,7 @@ import { setupRenderingTest, skip } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | posts/posts-info", function(hooks) {
+module("Integration | Component | posts/post-info", function(hooks) {
   setupRenderingTest(hooks);
 
   skip("it renders", async function(assert) {

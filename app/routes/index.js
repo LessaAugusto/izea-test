@@ -12,6 +12,10 @@ export default class IndexRoute extends Route {
     },
   }
 
+  /**
+   * This method queries for the posts of this page, asking the endpoint to return the info about
+   * the user related to this post.
+   */
   async model({ page = 1 }) {
     const records = await this.store.query("post", {
       _limit: LIMIT_PER_PAGE,
@@ -20,30 +24,11 @@ export default class IndexRoute extends Route {
     });
 
     return records;
-    // const { response, jqXHR } = await this.ajax.raw("/posts", {
-    //   method: "GET",
-    //   data: {
-    //     _limit: LIMIT_PER_PAGE,
-    //     _page: page,
-    //   }
-    // });
-
-    // const resObj = {
-    //   response: [],
-    //   totalPageNumber: 0,
-    // };
-
-    // const totalRecords = jqXHR.getResponseHeader("x-total-count");
-
-    // resObj.response = response;
-    // resObj.totalPageNumber = Math.ceil(parseInt(totalRecords)/LIMIT_PER_PAGE);
-
-    // return resObj;
   }
 
   /**
-   * This method is going to redirect the user to the first page if they try to go to a page greater
-   * than the max number of pages.
+   * This method is going to redirect the user to the first page if they try to go to an invalid
+   * page (greater than the max number of pages or minor than or equal to zero).
    */
   afterModel(model) {
     const { query, meta } = model;
