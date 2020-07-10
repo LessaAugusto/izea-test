@@ -19,7 +19,7 @@ $xs-xs-mobile-screen: 320px;
 }
 
 /**
- * Breakpoint exclusively for mega small screens (such as
+ * Media query exclusively for mega small screens (such as
  * iphone 5's one).
  */
 @media screen and (max-width: $xs-xs-mobile-screen) {
@@ -30,6 +30,19 @@ $xs-xs-mobile-screen: 320px;
 
     .body {
       font-size: theme.$font-xs;
+    }
+  }
+}
+
+/* Media query for all devices with width >= 960px */
+@media screen and (min-width: theme.$md) {
+  .post-info-container {
+    .title {
+      font-size: theme.$font-xl;
+    }
+
+    .body {
+      font-size: theme.$font-md;
     }
   }
 }

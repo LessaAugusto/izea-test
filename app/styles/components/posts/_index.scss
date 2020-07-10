@@ -39,9 +39,9 @@ $containers-base-width: 90%;
   .post {
     border: 1px solid theme.$secondary-dark;
     border-radius: 10px;
-    transition: all 0.2s;
     padding: 0.625rem; // 10px
     box-shadow: theme.$shadow-dark;
+    transition: background-color 0.2s;
   
     // Aligns the text to the center.
     display: flex;
@@ -54,7 +54,7 @@ $containers-base-width: 90%;
       border-color: theme.$secondary;
       color: white;
   
-      transition: all 0.2s;
+      transition: background-color 0.2s;
     }
   }
 }
@@ -112,7 +112,7 @@ $containers-base-width: 90%;
   }
 }
 
-/* Media query for medium devides (600px <= width <= 960px) */
+/* Media query for medium devides (600px <= width < 960px) */
 @media screen and (min-width: theme.$sm) {
   $containers-width: 75%;
 
@@ -131,10 +131,15 @@ $containers-base-width: 90%;
   }
 }
 
-/* Media query for large devides (width >= 1280px) */
+/* Media query for large devides (width >= 960px) */
 @media screen and (min-width: theme.$md) {
   $containers-width: 50%;
   $max-containers-width: 37.5rem; //600px
+
+  .modal-content-container {
+    display: flex;
+    height: 30rem;
+  }
 
   .posts-container {
     max-width: $max-containers-width;

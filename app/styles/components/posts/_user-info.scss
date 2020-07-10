@@ -20,7 +20,7 @@ $xs-xs-mobile-screen: 320px;
 }
 
 /**
- * Breakpoint exclusively for mega small screens (such as
+ * Media query exclusively for mega small screens (such as
  * iphone 5's one).
  */
  @media screen and (max-width: $xs-xs-mobile-screen) {
@@ -28,5 +28,25 @@ $xs-xs-mobile-screen: 320px;
     .item {
       font-size: theme.$font-xs;
     }
+  }
+}
+
+/* Media query for medium devices (600px <= width < 960px)*/
+@media screen and (min-width: theme.$sm) {
+  .user-info-container {
+    margin-left: 0.625rem; // 10px
+    width: 100%;
+    grid-template-rows: repeat(3, 5rem); // 40px
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
+/* Media query for large devices (width >= 960px) */
+@media screen and (min-width: theme.$md) {
+  .user-info-container {
+    margin-left: 0.625rem; // 10px
+    width: 100%;
+    grid-template-rows: repeat(5, 5rem); // 40px
+    grid-template-columns: repeat(2, auto);
   }
 }

@@ -19,7 +19,7 @@
     box-shadow: theme.$shadow-dark;
   
     // Sets the dimensions of the modal.
-    height: 70%;
+    height: 80%;
     width: 90%;
     overflow-y: auto;
 
@@ -45,6 +45,7 @@
   color: white;
   border-radius: 5px;
   transition: transform 0.5s;
+  margin-right: 10px;
 
   &:hover {
     transform: rotate(180deg);
