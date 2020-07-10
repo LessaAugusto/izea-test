@@ -1,5 +1,4 @@
-
-@use "../base/theme";
+@use "../../base/theme";
 @use "post-info";
 @use "user-info";
 
@@ -38,6 +37,7 @@ $containers-base-width: 90%;
     border-radius: 10px;
     transition: all 0.2s;
     padding: 0.625rem; // 10px
+    box-shadow: theme.$shadow-dark;
   
     // Aligns the text to the center.
     display: flex;

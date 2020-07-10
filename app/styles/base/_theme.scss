@@ -15,6 +15,10 @@ $dark: #3e3b3b;
 $primary-gradient: radial-gradient(circle, $primary-light 11%, $primary 61%, $primary-dark 90%);
 $secondary-gradient: radial-gradient(circle, $secondary 11%, $secondary-dark 90%);
 
+/* Box shadows */
+$shadow-dark: 0 3px 11px 0 rgba(0,0,0,0.30);
+$shadow-light: 0 3px 11px 0 rgba(0,0,0,0.15);
+
 /* Breakpoints */
 $xs: 0px;
 $sm: 600px;
