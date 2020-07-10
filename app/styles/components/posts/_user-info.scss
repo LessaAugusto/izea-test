@@ -8,14 +8,14 @@ $xs-xs-mobile-screen: 320px;
   grid-template-columns: repeat(2, auto);
   row-gap: 1rem; // 16px
   margin-top: 1.25rem; // 20px
-  
+
   align-items: center;
   justify-items: center;
 
   .item {
     justify-self: left;
-
-    font-size: theme.$font-sm;
+    min-width: 13.75rem; // 220px
+    font-size: 1.125rem; // 18px
   }
 }
 

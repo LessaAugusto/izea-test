@@ -8,14 +8,12 @@ $xs-xs-mobile-screen: 320px;
   .post-title {
     font-size: theme.$font-lg;
     font-weight: bold;
-  
     margin-bottom: 10%;
   }
 
   .post-body {
     line-height: 2;
     font-size: theme.$font-sm;
-    
     margin-bottom: 5%;
   }
 }
