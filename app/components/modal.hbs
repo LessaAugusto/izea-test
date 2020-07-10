@@ -1,7 +1,9 @@
 {{#if @isVisible}}
   <div class="modal" data-test-modal-container>
     <div class="modal-content">
-      <button class="close-button" {{on "click" @onClose}} data-test-close-button />
+      <div class="modal-header">
+        <button class="close-button" {{on "click" @onClose}} data-test-close-button />
+      </div>
       {{yield}}
     </div>
   </div>

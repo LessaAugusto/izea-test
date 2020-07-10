@@ -1,0 +1,37 @@
+@use "../../base/theme";
+
+$xs-xs-mobile-screen: 320px;
+
+.post-info-container {
+  padding: 0.625rem;
+  
+  .post-title {
+    font-size: theme.$font-lg;
+    font-weight: bold;
+  
+    margin-bottom: 10%;
+  }
+
+  .post-body {
+    line-height: 2;
+    font-size: theme.$font-sm;
+    
+    margin-bottom: 5%;
+  }
+}
+
+/**
+ * Breakpoint exclusively for mega small screens (such as
+ * iphone 5's one).
+ */
+@media screen and (max-width: $xs-xs-mobile-screen) {
+  .post-info-container {
+    .post-title {
+      font-size: theme.$font-md;
+    }
+
+    .post-body {
+      font-size: theme.$font-xs;
+    }
+  }
+}

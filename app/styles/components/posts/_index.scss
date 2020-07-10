@@ -26,6 +26,10 @@ $containers-base-width: 90%;
   row-gap: $gap;
 }
 
+.modal-content-container {
+  padding: 0.625rem;
+}
+
 .posts-container {
   margin: auto;
   display: grid;

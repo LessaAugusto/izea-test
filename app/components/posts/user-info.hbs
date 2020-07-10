@@ -1,1 +1,43 @@
-{{yield}}
+{{#if @userData.name}}
+  <div class="user-info-container">
+    <Icon::Profile
+      @width={{"1.5rem"}}
+      @height={{"1.5rem"}}
+    />
+    <div class="item">
+      {{@userData.name}}
+    </div>
+
+    <Icon::Email
+      @width={{"1.5rem"}}
+      @height={{"1.5rem"}}
+    />
+    <div class="item">
+      {{@userData.email}}
+    </div>
+
+    <Icon::Phone
+      @width={{"1.5rem"}}
+      @height={{"1.5rem"}}
+    />
+    <div class="item">
+      {{@userData.phone}}
+    </div>
+
+    <Icon::Website
+      @width={{"1.5rem"}}
+      @height={{"1.5rem"}}
+    />
+    <div class="item">
+      {{@userData.website}}
+    </div>
+
+    <Icon::Address
+      @width={{"1.5rem"}}
+      @height={{"1.5rem"}}
+    />
+    <div class="item">
+      {{@userData.address.street}}, {{@userData.address.suite}}
+    </div>
+  </div>
+{{/if}}

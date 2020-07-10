@@ -1,0 +1,32 @@
+@use "../../base/theme";
+
+$xs-xs-mobile-screen: 320px;
+
+.user-info-container {
+  display: grid;
+  grid-template-rows: repeat(5, 2.5rem); // 40px
+  grid-template-columns: repeat(2, auto);
+  row-gap: 1rem; // 16px
+  margin-top: 1.25rem; // 20px
+  
+  align-items: center;
+  justify-items: center;
+
+  .item {
+    justify-self: left;
+
+    font-size: theme.$font-sm;
+  }
+}
+
+/**
+ * Breakpoint exclusively for mega small screens (such as
+ * iphone 5's one).
+ */
+ @media screen and (max-width: $xs-xs-mobile-screen) {
+  .user-info-container {
+    .item {
+      font-size: theme.$font-xs;
+    }
+  }
+}
