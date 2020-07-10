@@ -72,6 +72,23 @@ $containers-base-width: 90%;
   .pages-segment {
     display: flex;
 
+    .page {
+      @include pagination-hover-effect;
+  
+      margin: 0 0.3125rem; // 5px
+  
+      .page-link {
+        text-decoration: none;
+        outline: none;
+        color: inherit;
+        padding: 0.625rem; // 10px
+  
+        &:visited {
+          color: inherit;
+        }
+      }
+    }
+
     .active-page {
       background-color: theme.$secondary-dark;
       color: white;
@@ -85,23 +102,6 @@ $containers-base-width: 90%;
     }
     &:last-of-type::before {
       content: "...";
-    }
-  }
-
-  .page {
-    @include pagination-hover-effect;
-
-    margin: 0 0.3125rem; // 5px
-
-    .page-link {
-      text-decoration: none;
-      outline: none;
-      color: inherit;
-      padding: 0.625rem; // 10px
-
-      &:visited {
-        color: inherit;
-      }
     }
   }
 
@@ -119,15 +119,15 @@ $containers-base-width: 90%;
   .posts-container {
     // row-size of 80px
     @include set-posts-container-grid(5rem, $containers-width, 0, 1.25rem);
+
+    .post {
+      font-size: 1.125rem; // 18px
+    }
   }
 
   .pages-container {
     width: $containers-width;
     font-size: theme.$font-md;
-  }
-
-  .post {
-    font-size: 1.125rem; // 18px
   }
 }
 
@@ -138,15 +138,15 @@ $containers-base-width: 90%;
 
   .posts-container {
     max-width: $max-containers-width;
+
+    .post {
+      font-size: theme.$font-sm;
+    }
   }
 
   .pages-container {
     width: $containers-width;
     max-width: $max-containers-width;
     margin-top: 3%;
-  }
-
-  .post {
-    font-size: theme.$font-sm;
   }
 }

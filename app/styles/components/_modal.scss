@@ -9,29 +9,29 @@
   height: 100%;
   z-index: 1;
   background-color: rgba(255,255,255,0.7);
-}
 
-.modal-header {
-  width: 100%;
-  background-color: theme.$primary-dark;
-  display: flex;
-  justify-content: flex-end;
+  .content {
+    word-break: break-word;
+    margin: 5% auto;
+    background-color: white;
+    border: 2px solid theme.$primary-dark;
+    border-radius: 5px;
+    box-shadow: theme.$shadow-dark;
+  
+    // Sets the dimensions of the modal.
+    height: 70%;
+    width: 90%;
+    overflow-y: auto;
 
-  box-shadow: theme.$shadow-light;
-}
-
-.modal-content {
-  word-break: break-word;
-  margin: 5% auto;
-  background-color: white;
-  border: 2px solid theme.$primary-dark;
-  border-radius: 5px;
-  box-shadow: theme.$shadow-dark;
-
-  // Sets the dimensions of the modal.
-  height: 70%;
-  width: 90%;
-  overflow-y: auto;
+    .header {
+      width: 100%;
+      background-color: theme.$primary-dark;
+      display: flex;
+      justify-content: flex-end;
+    
+      box-shadow: theme.$shadow-light;
+    }
+  }
 }
 
 .close-button {

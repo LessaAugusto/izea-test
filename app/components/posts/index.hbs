@@ -9,7 +9,7 @@
   </div>
 </Modal>
 
-<div class="container">
+<div>
   <div class="posts-container" data-test-posts-container>
     {{#each @posts as |post index|}}
       <div {{on "click" (fn this.openModal post) }} class="post" data-test-title-container={{index}}>

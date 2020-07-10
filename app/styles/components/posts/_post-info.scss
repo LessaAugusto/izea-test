@@ -5,13 +5,13 @@ $xs-xs-mobile-screen: 320px;
 .post-info-container {
   padding: 0.625rem;
   
-  .post-title {
+  .title {
     font-size: theme.$font-lg;
     font-weight: bold;
     margin-bottom: 10%;
   }
 
-  .post-body {
+  .body {
     line-height: 2;
     font-size: theme.$font-sm;
     margin-bottom: 5%;
@@ -24,11 +24,11 @@ $xs-xs-mobile-screen: 320px;
  */
 @media screen and (max-width: $xs-xs-mobile-screen) {
   .post-info-container {
-    .post-title {
+    .title {
       font-size: theme.$font-md;
     }
 
-    .post-body {
+    .body {
       font-size: theme.$font-xs;
     }
   }
