@@ -16,8 +16,15 @@ $primary-gradient: radial-gradient(circle, $primary-light 11%, $primary 61%, $pr
 $secondary-gradient: radial-gradient(circle, $secondary 11%, $secondary-dark 90%);
 
 /* Breakpoints */
-$xs: 320px;
-$sm: 480px;
-$md: 600px;
-$lg: 900px;
-$xl: 1200px;
+$xs: 0px;
+$sm: 600px;
+$md: 960px;
+$lg: 1280px;
+$xl: 1920px;
+
+/* Some useful font-sizes to be used across the code. */
+$font-xs: 1rem; // 16px
+$font-sm: 1.25rem; // 20px
+$font-md: 1.5rem; // 24px
+$font-lg: 1.75rem; // 28px
+$font-xl: 2rem; // 32px
