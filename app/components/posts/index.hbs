@@ -1,12 +1,13 @@
 <Modal
   @isVisible={{this.isModalVisible}}
-  @onClose={{this.toggleModal}}
-/>
-
+  @onClose={{this.closeModal}}
+>
+  <p> {{this.modalPostData.title}} </p>
+</Modal>
 <div class="container">
   <div class="posts-container" data-test-posts-container>
     {{#each @posts as |post index|}}
-      <div {{on "click" this.toggleModal }} class="post" data-test-title-container={{index}}>
+      <div {{on "click" (fn this.openModal post) }} class="post" data-test-title-container={{index}}>
         {{post.title}}
       </div>
     {{/each}}

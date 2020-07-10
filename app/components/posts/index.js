@@ -9,7 +9,18 @@ export default class PostsComponent extends Component {
    */
   @tracked isModalVisible = false;
 
-  @action toggleModal() {
-    this.isModalVisible = !this.isModalVisible;
+  /**
+   * This is the data of the post selected by the user (including the user who
+   * created the post).
+   */
+  @tracked modalPostData = {};
+
+  @action openModal(selectedPost) {
+    this.modalPostData = selectedPost;
+    this.isModalVisible = true;
+  }
+
+  @action closeModal() {
+    this.isModalVisible = false;
   }
 }
