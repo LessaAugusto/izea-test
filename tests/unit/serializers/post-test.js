@@ -1,23 +1,53 @@
 import { module, test } from "qunit";
-import { setupTest, skip } from "ember-qunit";
+import { setupTest } from "ember-qunit";
+import { LIMIT_PER_PAGE } from "izea-test/routes";
+
+import { SERVER_RESPONSE_MOCK, TOTAL_RECORDS_MOCK } from "./utils";
 
 module("Unit | Serializer | post", function(hooks) {
   setupTest(hooks);
 
-  // Replace this with your real tests.
-  skip("it exists", function(assert) {
-    let store = this.owner.lookup("service:store");
-    let serializer = store.serializerFor("post");
+  test("it should normalize a server response correctly", function(assert) {
+    // Gets the serializer for the post model.
+    const store = this.owner.lookup("service:store");
+    const postModel = store.modelFor("post");
+    const serializer = store.serializerFor("post");
 
-    assert.ok(serializer);
-  });
+    // Calls the method we want to test.
+    const response = serializer.normalizeResponse(
+      store,
+      postModel,
+      SERVER_RESPONSE_MOCK,
+      null,
+      "findAll"
+    );
 
-  skip("it serializes records", function(assert) {
-    let store = this.owner.lookup("service:store");
-    let record = store.createRecord("post", {});
+    const { response: [postData] } = SERVER_RESPONSE_MOCK;
 
-    let serializedRecord = record.serialize();
+    // That's the expected response
+    const expectedResponse = {
+      data: [{
+        attributes: {
+          body: postData.body,
+          title: postData.title,
+        },
+        id: postData.id.toString(),
+        relationships:  {
+          userId: {
+            data: {
+              id: postData.user.id.toString(),
+              type: "user",
+            },
+          },
+        },
+        type: "post",
+      }],
+      included: [],
+      meta: {
+        total: Math.ceil(parseInt(TOTAL_RECORDS_MOCK)/LIMIT_PER_PAGE),
+      }
+    };
 
-    assert.ok(serializedRecord);
+    assert.deepEqual(response, expectedResponse);
   });
 });
