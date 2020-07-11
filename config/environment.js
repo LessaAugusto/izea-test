@@ -43,7 +43,7 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
   }
 
-  ENV.APP.API = "http://jsonplaceholder.typicode.com";
+  ENV.APP.API = "https://jsonplaceholder.typicode.com";
 
   if (environment === "production") {
     // here you can enable a production-specific feature
