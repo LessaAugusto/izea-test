@@ -1,12 +1,12 @@
 {{!-- If the user data is still loading, we should show the Loading
 component --}}
 {{#if @userData.name}}
-  <div class="user-info-container">
+  <div class="user-info-container" data-test-user-info-container>
     <Icon::Profile
       @width={{"1.5rem"}}
       @height={{"1.5rem"}}
     />
-    <div class="item">
+    <div class="item" data-test-user-name>
       {{@userData.name}}
     </div>
 
@@ -14,7 +14,7 @@ component --}}
       @width={{"1.5rem"}}
       @height={{"1.5rem"}}
     />
-    <div class="item">
+    <div class="item" data-test-user-email>
       {{@userData.email}}
     </div>
 
@@ -22,7 +22,7 @@ component --}}
       @width={{"1.5rem"}}
       @height={{"1.5rem"}}
     />
-    <div class="item">
+    <div class="item" data-test-user-phone>
       {{@userData.phone}}
     </div>
 
@@ -30,7 +30,7 @@ component --}}
       @width={{"1.5rem"}}
       @height={{"1.5rem"}}
     />
-    <div class="item">
+    <div class="item" data-test-user-website>
       {{@userData.website}}
     </div>
 
@@ -38,7 +38,7 @@ component --}}
       @width={{"1.5rem"}}
       @height={{"1.5rem"}}
     />
-    <div class="item">
+    <div class="item" data-test-user-address>
       {{@userData.address.street}}, {{@userData.address.suite}}
     </div>
   </div>
