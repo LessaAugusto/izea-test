@@ -3,8 +3,9 @@ import { LIMIT_PER_PAGE } from "izea-test/routes";
 
 /**
  * We must create a custom serializer to the post model because we must have access to the "x-total-count"
- * response header, this is going to tell us how many pages we should show to the user. The default
- * serializer doesn't care about metadata, this one must care.
+ * response header, this is going to tell us the total number of pages, and then we can figure out 
+ * how many pages we should show to the user. The default serializer doesn't care about metadata,
+ * this one must care.
  */
 export default class PostSerializer extends RESTSerializer {
   /**
